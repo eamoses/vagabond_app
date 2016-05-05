@@ -26,6 +26,12 @@ class UsersController < ApplicationController
     render :show
   end
 
+  def update
+    user = User.find_by_id(params[:id])
+    user.update(user_params)
+    redirect_to user_path
+  end
+
   def self.confirm(params)
     @user = User.find_by({email: params[:email]})
     @user.try(:authenticate, params[:password])
@@ -33,6 +39,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :current_city)
   end
 end
