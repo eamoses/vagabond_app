@@ -17,13 +17,26 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    login(@user)
-    redirect_to @user
+    if @user.save
+      login(@user)
+      redirect_to @user
+    else
+      flash[:error] = @user.errors.full_messages.to_sentence
+      redirect_to new_user_path
+    end
+
+
   end
 
   def show
     @user = User.find_by_id(params[:id])
     render :show
+  end
+
+  def update
+    user = User.find_by_id(params[:id])
+    user.update(user_params)
+    redirect_to user_path
   end
 
   def self.confirm(params)
@@ -33,6 +46,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :current_city)
   end
 end
