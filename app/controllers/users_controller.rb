@@ -10,6 +10,11 @@ class UsersController < ApplicationController
     render :new
   end
 
+  def edit
+    @user = User.find_by_id(params[:id])
+    render :edit
+  end
+
   def create
     @user = User.create(user_params)
     login(@user)
@@ -19,6 +24,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by_id(params[:id])
     render :show
+  end
+
+  def self.confirm(params)
+    @user = User.find_by({email: params[:email]})
+    @user.try(:authenticate, params[:password])
   end
 
   private
