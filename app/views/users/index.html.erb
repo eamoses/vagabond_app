@@ -1,0 +1,9 @@
+<h1>All Users</h1>
+<hr>
+<% @users.each do |user| %>
+  <p>
+    <strong><%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %></strong>
+  </p>
+<% end %>
+<hr>
+<%= link_to "register new user", new_user_path %>
