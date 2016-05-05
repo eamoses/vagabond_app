@@ -27,6 +27,10 @@ body {
   width: 100% !important;
 }
 
+.top-spacer {
+  margin-top: 20px;
+}
+
 .top-marg {
   margin-top: 40px;
 }
