@@ -2,7 +2,5 @@
 <hr>
 <p><strong>Name:</strong> <%= @user.first_name %> <%= @user.last_name %></p>
 <p><strong>Email:</strong> <%= @user.email %></p>
-<p><strong>Phone Number:</strong> <%= @user.phone %></p>
-<p><%= link_to "view cities", user_cities_path(@user) %></p>
 <p><%= link_to "edit this user", edit_user_path(@user) %></p>
 <p><%= link_to "delete this user", user_path(@user), method: :delete %></p>

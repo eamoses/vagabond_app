@@ -3,9 +3,15 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  def application
-    @cities = City.all
+  before_action :add_cities
 
+  def add_cities
+    @cities = City.all
+  end
+
+  def application
     render :application
   end
+
+  include SessionsHelper
 end
