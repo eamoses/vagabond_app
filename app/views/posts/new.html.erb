@@ -1,0 +1,23 @@
+<div class = "row">
+  <div class = "col-xs-6 col-xs-offset-3">
+    <h2>Add a Post to <%= @city.name %></h2>
+  </div>
+</div>
+
+<div class = "row">
+  <div class = "col-xs-6 col-xs-offset-3">
+
+    <%= form_for @post do |f| %>
+      <div class = "row">
+        <%= f.text_field :title, placeholder: "Post Title", class: "form-control" %>
+      </div>
+      <div class = "row">
+        <%= f.text_area :content, placeholder: "I love this city!", rows: "10", class: "form-control top-spacer" %>
+      </div>
+      <div class = "row">
+        <%= f.submit "Add my Post!", class: "btn btn-success top-spacer" %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
