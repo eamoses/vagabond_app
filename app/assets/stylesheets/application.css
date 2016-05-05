@@ -14,3 +14,15 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  padding-top: 70px;
+}
+
+/*div {
+  border: 1px dotted grey;
+}*/
+
+.full-width {
+  width: 100%;
+}
