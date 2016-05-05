@@ -26,3 +26,7 @@ body {
 .full-width {
   width: 100%;
 }
+
+.top-marg {
+  margin-top: 40px;
+}
