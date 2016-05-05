@@ -12,7 +12,7 @@ City.destroy_all
 User.destroy_all
 
 sf = City.create({name: "San Francisco", state: "California", country: "United States"})
-timmy = User.create({email: "timmy@test.com", first_name: "Timmy", last_name: "Testington", current_city: "Oakland"})
+timmy = User.create({email: "timmy@test.com", first_name: "Timmy", last_name: "Testington", current_city: "Oakland", password: "test"})
 Post.create({title: "Great Tacos", content:"Gotta love the tacos in SF. They're the best! Can't beat em. Nom nom nom.", city_id: sf.id, user_id: timmy.id})
 # post1.city_id = sf
 
