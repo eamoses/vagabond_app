@@ -7,8 +7,6 @@ class CitiesController < ApplicationController
   end
 
   def show
-    @cities = City.all
-    # ^^ ASK HOW TO FIX THIS ^^
 
     @city = City.find_by_id(params[:id])
     @posts = @city.posts.all
