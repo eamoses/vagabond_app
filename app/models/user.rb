@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
-  
+
   validates :first_name,
               presence:   true,
               length:   { maximum: 255 }
@@ -15,4 +15,9 @@ class User < ActiveRecord::Base
               format:     { with: VALID_EMAIL_REGEX },
               uniqueness: true,
               length:     { maximum: 255 }
+
+    def self.confirm(params)
+        @user = User.find_by({email: params[:email]})
+        @user.try(:authenticate, params[:password])
+      end              
 end

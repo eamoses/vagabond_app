@@ -8,4 +8,6 @@ class ApplicationController < ActionController::Base
 
     render :application
   end
+
+  include SessionsHelper
 end
