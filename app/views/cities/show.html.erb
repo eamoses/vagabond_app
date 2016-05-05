@@ -15,13 +15,13 @@
         <div class = "row">
           <div class = "col-sm-11">
             <% if @city.state || @city.country %>
-              <h4><% if @city.state %><%= @city.state %>, <% end %><% if @city.country %><%= @city.country %><% end %></h4>
+              <h4><em><% if @city.state %><%= @city.state %>, <% end %><% if @city.country %><%= @city.country %><% end %></em></h4>
             <% end %>
           </div>
         </div>
       </div>
 
-      <div class = "col-sm-1 col-sm-offset-1 pull-right center-block">
+      <div class = "col-md-1 col-md-offset-1 col-xs-4 col-xs-offset-5">
         <%= button_to "New Post", new_city_post_path(@city), class: "btn btn-info btn-lg top-marg" %>
       </div>
 
