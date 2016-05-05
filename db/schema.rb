@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20160505024317) do
 
   # These are extensions that must be enabled in order to support this database
@@ -36,5 +35,4 @@ ActiveRecord::Schema.define(version: 20160505024317) do
   add_index "posts", ["city_id"], name: "index_posts_on_city_id", using: :btree
 
   add_foreign_key "posts", "cities"
-
 end
