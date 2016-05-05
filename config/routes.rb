@@ -30,12 +30,8 @@ Rails.application.routes.draw do
   put     "/users/:id",                       to: "users#update"
   delete  "/users/:id",                       to: "users#destroy"
 
-
-
-
-
-  get "/login", to: "sessions#new"
-  post "/sessions", to: "sessions#create"
-  get "/logout", to: "sessions#destroy", as: "logout"
+  get     "/login",                           to: "sessions#new"
+  post    "/sessions",                        to: "sessions#create"
+  get     "/logout",                          to: "sessions#destroy", as: "logout"
 
 end
