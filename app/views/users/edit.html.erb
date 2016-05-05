@@ -1,2 +1,13 @@
 <h1>Users#edit</h1>
-<p>Find me in app/views/users/create.html.erb</p>
+<%= form_for @user do |f| %>
+  <div>
+    <%= f.text_field :first_name, placeholder: "First Name" %>
+  </div>
+  <div>
+    <%= f.text_field :last_name, placeholder: "Last Name" %>
+  </div>
+  <div>
+    <%= f.text_field :email, placeholder: "Email" %>
+  </div>
+  <%= f.submit "Edit User" %>
+<% end %>

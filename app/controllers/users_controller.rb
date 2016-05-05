@@ -10,6 +10,11 @@ class UsersController < ApplicationController
     render :new
   end
 
+  def edit
+    @user = User.find_by_id(params[:id])
+    render :edit
+  end
+
   def create
     @user = User.create(user_params)
     login(@user)
