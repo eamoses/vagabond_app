@@ -8,9 +8,10 @@ class PostsController < ApplicationController
   end
 
   def edit
+    session[:return_to] ||= request.referer
     @city = City.find_by_id(params[:city_id])
     @post = Post.find_by_id(params[:id])
-    # @current_user ||= User.find_by_id(session[:user_id])
+
     if current_user == @post.user
       render :edit
     else
@@ -23,7 +24,8 @@ class PostsController < ApplicationController
     city = City.find_by_id(params[:city_id])
     post = Post.find_by_id(params[:id])
     post.update(post_params)
-    redirect_to city_post_path(city, post)
+
+    redirect_to session.delete(:return_to)
   end
 
   def create
