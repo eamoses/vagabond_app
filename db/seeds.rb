@@ -11,10 +11,10 @@ Post.destroy_all
 City.destroy_all
 User.destroy_all
 
-# sf = City.create({
-#   name: "San Francisco",
-#   state: "California",
-#   country: "United States"})
+sf = City.create({
+  name: "San Francisco",
+  state: "California",
+  country: "United States"})
 timmy = User.create({
   email: "timmy@test.com",
   first_name: "Timmy",
