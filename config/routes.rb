@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post    "/cities/:city_id/posts",           to: "posts#create"
   get     "/cities/:city_id/posts/new",       to: "posts#new",        as: "new_post"
   get     "/cities/:city_id/posts/:id/edit",  to: "posts#edit",       as: "edit_post"
-  get     "/cities/:city_id/posts/:id",       to: "posts#show",       as: "post"
+  get     "/cities/:city_id/posts/:id",       to: "posts#show",       as: "city_post"
   patch   "cities/:city_id/posts/:id",        to: "posts#update"
   put     "/cities/:city_id/posts/:id",       to: "posts#update"
   delete  "/cities/:city_id/posts/:id",       to: "posts#destroy"

@@ -14,6 +14,13 @@ class PostsController < ApplicationController
     render :edit
   end
 
+  def update
+    city = City.find_by_id(params[:city_id])
+    post = Post.find_by_id(params[:id])
+    post.update(post_params)
+    redirect_to city_post_path(city, post)
+  end
+
   def create
     user = current_user
     post = Post.create(post_params)
