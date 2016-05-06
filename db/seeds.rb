@@ -28,6 +28,7 @@ ln = City.create({
   })
 
 timmy = User.create({
+  avatar: "http://vignette4.wikia.nocookie.net/mrmen/images/5/52/Small.gif/revision/latest?cb=20100731114437",
   email: "timmy@test.com",
   first_name: "Timmy",
   last_name: "Testington",

@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160506233548) do
+
+ActiveRecord::Schema.define(version: 20160506224322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,7 +46,10 @@ ActiveRecord::Schema.define(version: 20160506233548) do
     t.datetime "updated_at",      null: false
     t.string   "current_city"
     t.string   "avatar"
+<<<<<<< HEAD
     t.string   "slug"
+=======
+>>>>>>> 6a59e944c7a3cb2df57bc070e1ba3f02bf0acb1c
   end
 
   add_index "users", ["slug"], name: "index_users_on_slug", using: :btree
