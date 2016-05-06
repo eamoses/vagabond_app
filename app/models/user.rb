@@ -24,4 +24,8 @@ VALID_NAME_REGEX = /[a-zA-Z]/
         @user = User.find_by({email: params[:email]})
         @user.try(:authenticate, params[:password])
     end
+
+    def to_param
+      "#{id} #{first_name} #{last_name}".parameterize
+    end
 end
