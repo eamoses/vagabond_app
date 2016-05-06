@@ -48,7 +48,7 @@
           <h5>"<%= post.title %>"</h5>
         </div>
         <div class = "row">
-          <%= post.content %>
+          <%=h truncate(post.content, :length => 1000) %>
         </div>
         <div class = "row top-spacer">
           <%= link_to "View this post", city_post_path(@city, post) %>
