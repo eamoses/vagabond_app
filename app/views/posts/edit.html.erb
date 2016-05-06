@@ -7,7 +7,7 @@
 <div class = "row">
   <div class = "col-xs-6 col-xs-offset-3">
 
-    <%= form_for @post do |f| %>
+    <%= form_for [@city, @post] do |f| %>
       <div class = "row">
         <%= f.text_field :title, placeholder: "Post Title", class: "form-control" %>
       </div>

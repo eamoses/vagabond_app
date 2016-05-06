@@ -17,7 +17,7 @@
         <h3><%= @post.title %></h3>
       </div>
       <div class = "row">
-        <em><%= link_to @post.city.name, post_path(@city, post) %></em>
+        <em><%= link_to @post.city.name, city_path(@city) %></em>
       </div>
       <div class = "row top-spacer">
         <%= @post.content %>

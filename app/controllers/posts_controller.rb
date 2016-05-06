@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-before_action :logged_in?, only: [:show]
+
   def new
     @city = City.find_by_id(params[:city_id])
     @post = Post.new
@@ -14,6 +14,13 @@ before_action :logged_in?, only: [:show]
     render :edit
   end
 
+  def update
+    city = City.find_by_id(params[:city_id])
+    post = Post.find_by_id(params[:id])
+    post.update(post_params)
+    redirect_to city_post_path(city, post)
+  end
+
   def create
     user = current_user
     post = Post.create(post_params)
@@ -24,13 +31,14 @@ before_action :logged_in?, only: [:show]
     if post.save
       redirect_to city_path(@city.id)
     else
-      flash[:error] = post.errors.full_messages.to_sentence
+      flash[:error] = @post.errors.full_messages.to_sentence
       redirect_to new_post_path
     end
   end
 
   def show
     @post = Post.find_by_id(params[:id])
+    @city = City.find_by_id(params[:city_id])
 
     render :show
   end

@@ -26,9 +26,9 @@
                     <p></p>
                   <%= link_to "", user_path(@user), method: "delete", data: {confirm: 'Are you sure?'}, class: 'glyphicon glyphicon-pencil btn btn-danger btn-lg'%>
                 </div>
-                  <%= link_to p.title, post_path(:city_id, :id) %><p></p>
+                  <%= link_to p.title, city_post_path(p.city, p) %><p></p>
                     <%= p.content %><p></p>
-                      <%= link_to p.city.name, city_path(@cities) %><p></p>
+                      <%= link_to p.city.name, city_path(p.city) %><p></p>
               <% end %>
             <% end %>
           </div>
