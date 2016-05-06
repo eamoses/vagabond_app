@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   has_many :posts
   has_secure_password
 
+  validates :avatar,
+              presence: true
+
 VALID_NAME_REGEX = /\A[a-zA-Z0-9 ]*\z/
   validates :first_name,
               presence: true,
