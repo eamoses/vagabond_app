@@ -22,6 +22,11 @@
       <div class = "row top-spacer">
         <%= @post.content %>
       </div>
+      <% if @post.user == current_user %>
+        <div class = "row top-spacer">
+          <%= link_to "Edit Post", edit_post_path(@city, @post) %> - <%= link_to "Delete Post", city_post_path(@city, @post), method: "delete" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
