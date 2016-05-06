@@ -8,8 +8,9 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @city = City.find_by_id(params[:city_id])
     @post = Post.find_by_id(params[:id])
-    
+
     render :edit
   end
 
