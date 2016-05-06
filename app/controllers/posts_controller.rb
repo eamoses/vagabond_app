@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-
+before_action :logged_in?, only: [:show]
   def new
     @city = City.find_by_id(params[:city_id])
     @post = Post.new

@@ -7,13 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% flash.each do |name,msg| %>
 
-        <div> <%= msg %></div>
-
-    <% end %>
 
   <div class="container-fluid">
+    <% flash.each do |name,msg| %>
+
+          <div> <%= msg %></div>
+
+      <% end %>
     <div class="col-xs-12">
 
       <nav class="navbar navbar-default navbar-fixed-top">
@@ -47,7 +48,7 @@
                 <li><%= link_to "Log Out", logout_path(current_user) %></li>
               <% else %>
                 <li><%= link_to "Sign Up", new_user_path %></li>
-                <li><%= link_to "Log In", login_path %></li>
+                <li><%= link_to "Log In", new_session_path %></li>
               <% end %>
             </ul>
           </div><!-- /.navbar-collapse -->
