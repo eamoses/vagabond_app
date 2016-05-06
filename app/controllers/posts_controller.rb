@@ -8,17 +8,24 @@ class PostsController < ApplicationController
   end
 
   def edit
+    session[:return_to] ||= request.referer
     @city = City.find_by_id(params[:city_id])
     @post = Post.find_by_id(params[:id])
 
-    render :edit
+    if current_user == @post.user
+      render :edit
+    else
+      flash[:error] = "You can only edit your own posts"
+      redirect_to root_path
+    end
   end
 
   def update
     city = City.find_by_id(params[:city_id])
     post = Post.find_by_id(params[:id])
     post.update(post_params)
-    redirect_to city_post_path(city, post)
+
+    redirect_to session.delete(:return_to)
   end
 
   def create
