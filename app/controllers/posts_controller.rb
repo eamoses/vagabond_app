@@ -10,8 +10,13 @@ class PostsController < ApplicationController
   def edit
     @city = City.find_by_id(params[:city_id])
     @post = Post.find_by_id(params[:id])
-
-    render :edit
+    # @current_user ||= User.find_by_id(session[:user_id])
+    if current_user == @post.user
+      render :edit
+    else
+      flash[:error] = "You can only edit your own posts"
+      redirect_to root_path
+    end
   end
 
   def update
