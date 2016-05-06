@@ -43,6 +43,18 @@ class PostsController < ApplicationController
     render :show
   end
 
+  def destroy
+    post = Post.find_by_id(params[:id])
+    post.destroy
+    if post.destroy
+      flash[:notice] = "Post deleted."
+      redirect_to city_path(params[:city_id])
+    else
+      flash[:error] = post.erroes.full_messages_to_sentence
+      redirect_to edit_post_path(post.city, post)
+    end
+  end
+
   private
 
   def post_params
