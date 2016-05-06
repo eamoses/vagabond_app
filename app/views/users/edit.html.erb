@@ -1,16 +1,25 @@
-<h1>Users#edit</h1>
-<%= form_for @user do |f| %>
-  <div>
-    <%= f.text_field :first_name, placeholder: "First Name" %>
+<div class = "row">
+  <div class = "col-xs-6 col-xs-offset-3">
+          <h1>Edit your information</h1>
   </div>
-  <div>
-    <%= f.text_field :last_name, placeholder: "Last Name" %>
-  </div>
-  <div>
-    <%= f.text_field :email, placeholder: "Email" %>
-  </div>
-  <div>
-    <%= f.text_field :current_city, placeholder: "Current City" %>
-  </div>
-  <%= f.submit "Edit User" %>
-<% end %>
+</div>
+
+      <div class = "row">
+       <div class = "col-xs-6 col-xs-offset-3">
+          <%= form_for @user do |f| %>
+            <div class="row">
+              <%= f.text_field :first_name, placeholder: "First Name", class: "form-control" %>
+            </div><p></p>
+            <div class="row">
+              <%= f.text_field :last_name, placeholder: "Last Name", class: "form-control" %>
+            </div><p></p>
+            <div class="row">
+              <%= f.text_field :email, placeholder: "Email", class: "form-control" %>
+            </div><p></p>
+            <div class="row">
+              <%= f.text_field :current_city, placeholder: "Current City", class: "form-control" %>
+            </div><p></p>
+            <%= f.submit "Edit User", class: "btn btn-success top-spacer" %>
+          <% end %>
+        </div>
+      </div>

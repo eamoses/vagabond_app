@@ -1,40 +1,43 @@
-<div class ="row">
-  <div class="col-xs-12">
-  <div class = "col-xs-6 pull-left">
-    <div class = "row">
-      <div class = "col-sm-6">
-        <%= link_to image_tag("http://placehold.it/320x320", class: 'full-width') %>
-      <p><strong>Name:</strong> <%= @user.first_name %> <%= @user.last_name %></p>
-      <p><strong>Email:</strong> <%= @user.email %></p>
-      <p><strong>Current City:</strong> <%= @user.current_city %></p>
-      <p><strong>Join Date:</strong> <%= @user.created_at.strftime("%m/%d/%Y") %></p>
-      <%= link_to "Edit User", edit_user_path(@user), class: "btn btn-info btn-md top-marg" %>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class = "col-xs-6 pull-right">
-      <div class="row">
-        <div class="col-sm-6">
-          <ul>
-            <% @posts.each do |p| %>
-            <li>
-              <%= p.title %><p>
-                <%= p.content %><p>
-                  <%= p.city.name %><p><p>
-            </li>
-            <% end %>
-          </ul>
+  <div class ="row">
+    <div class="col-xs-12 col-xs-offset-1">
+      <div class = "col-xs-6 pull-left">
+        <div class = "row">
+          <div class = "col-sm-6">
+            <p></p>
+            <%= link_to image_tag("http://placehold.it/320x320", class: 'full-width') %>
+          <p><strong>Name:</strong> <%= @user.first_name %> <%= @user.last_name %></p>
+          <p><strong>Email:</strong> <%= @user.email %></p>
+          <p><strong>Current City:</strong> <%= @user.current_city %></p>
+          <p><strong>Join Date:</strong> <%= @user.created_at.strftime("%m/%d/%Y") %></p>
+          <%= link_to "Edit User", edit_user_path(@user), class: "btn btn-info btn-md top-marg" %>
+          </div>
         </div>
-      <button type = "button" class = "btn btn-info btn-md">
-        <span class = "glyphicon glyphicon-pencil"></span>
-      </button>
-      <button type = "button" class = "btn btn-danger btn-md">
-        <span class = "glyphicon glyphicon-remove"></span>
-      </button>
       </div>
+
+      <div class="row">
+        <div class = "col-xs-6 pull-right">
+          <div class="row">
+            <div class="col-sm-6">
+              <div>
+                <% @posts.each do |p| %><p></p>
+                <div>____________________________</div>
+                <div>
+                <div class="col-sm-3 pull-right">
+                  <% if current_user %>
+                  <%= link_to "", edit_post_path(:city_id, :id), method: "get", class: "glyphicon glyphicon-pencil btn btn-info btn-lg"%>
+                    <p></p>
+                  <%= link_to "", user_path(@user), method: "delete", data: {confirm: 'Are you sure?'}, class: 'glyphicon glyphicon-pencil btn btn-danger btn-lg'%>
+                </div>
+                  <%= link_to p.title, post_path(:city_id, :id) %><p></p>
+                    <%= p.content %><p></p>
+                      <%= link_to p.city.name, city_path(@cities) %><p></p>
+              <% end %>
+            <% end %>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
     </div>
   </div>
- </div>
-</div>

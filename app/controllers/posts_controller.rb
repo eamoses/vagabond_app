@@ -7,6 +7,12 @@ class PostsController < ApplicationController
     render :new
   end
 
+  def edit
+    @post = Post.find_by_id(params[:id])
+    
+    render :edit
+  end
+
   def create
     user = current_user
     post = Post.create(post_params)
