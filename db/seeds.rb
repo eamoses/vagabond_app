@@ -19,7 +19,13 @@ sf = City.create({
 gb = City.create({
   name: "Gibraltar",
   state: "British Territory",
-  country: "Great Britain"})
+  country: "England"})
+
+ln = City.create({
+  name: "London",
+  state: "United Kingdom",
+  country: "England"
+  })
 
 timmy = User.create({
   email: "timmy@test.com",
