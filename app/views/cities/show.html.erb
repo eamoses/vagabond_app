@@ -53,7 +53,7 @@
         <div class = "row top-spacer">
           <%= link_to "View this post", city_post_path(@city, post) %>
           <% if post.user == current_user %>
-             - <%= link_to "Edit Post", edit_post_path(@city, post) %> - <%= link_to "Delete Post", city_post_path(@city, post), method: "delete" %>
+             - <%= link_to "Edit Post", edit_post_path(@city, post) %> - <%= link_to "Delete Post", city_post_path(@city, post), data: {confirm: 'Are you sure?'}, method: "delete" %>
           <% end %>
         </div>
       </div>
