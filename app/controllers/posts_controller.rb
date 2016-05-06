@@ -24,7 +24,7 @@ before_action :logged_in?, only: [:show]
     if post.save
       redirect_to city_path(@city.id)
     else
-      flash[:error] = @post.errors.full_messages.to_sentence
+      flash[:error] = post.errors.full_messages.to_sentence
       redirect_to new_post_path
     end
   end
