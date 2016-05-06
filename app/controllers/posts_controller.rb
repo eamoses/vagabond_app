@@ -20,7 +20,12 @@ class PostsController < ApplicationController
       flash[:error] = @post.errors.full_messages.to_sentence
       redirect_to new_post_path
     end
+  end
 
+  def show
+    @post = Post.find_by_id(params[:id])
+
+    render :show
   end
 
   private
