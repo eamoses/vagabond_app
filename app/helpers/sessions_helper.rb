@@ -11,6 +11,7 @@ module SessionsHelper
 
   def logged_in?
     if current_user == nil
+      flash[:error] = "You must be logged in to perform this action"
       redirect_to new_session_path
     end
   end
@@ -18,5 +19,6 @@ module SessionsHelper
   def logout
     @current_user = session[:user_id] = nil
   end
+
 
 end
