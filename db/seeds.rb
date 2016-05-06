@@ -15,6 +15,10 @@ sf = City.create({
   name: "San Francisco",
   state: "California",
   country: "United States"})
+gibraltar = City.create({
+  name: "Gibraltar",
+  state: "British Territory",
+  country: "Great Britain"})
 timmy = User.create({
   email: "timmy@test.com",
   first_name: "Timmy",
