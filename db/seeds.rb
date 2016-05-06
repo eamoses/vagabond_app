@@ -15,17 +15,25 @@ sf = City.create({
   name: "San Francisco",
   state: "California",
   country: "United States"})
+
+gb = City.create({
+  name: "Gibraltar",
+  state: "British Territory",
+  country: "Great Britain"})
+
 timmy = User.create({
   email: "timmy@test.com",
   first_name: "Timmy",
   last_name: "Testington",
   current_city: "Oakland",
   password: "test"})
+
 Post.create({
   title: "Great Tacos",
   content:"Gotta love the tacos in SF. They're the best! Can't beat em. Nom nom nom.",
   city_id: sf.id,
   user_id: timmy.id})
+
 Post.create({
   title: "Worst Tacos",
   content:"UGH, I hate SF tacos! They are the worst. You should really go to somewhere more authentic, like Illinois, for a good taco. There they know how to make a good carne asada.",
