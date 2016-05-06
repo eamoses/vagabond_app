@@ -50,8 +50,11 @@
         <div class = "row">
           <%= post.content %>
         </div>
-        <div class = "row">
+        <div class = "row top-spacer">
           <%= link_to "View this post", post_path(@city, post) %>
+          <% if post.user == current_user %>
+            <%= link_to " - Edit Post", edit_post_path(@city, post) %>            
+          <% end %>
         </div>
       </div>
     </div>
