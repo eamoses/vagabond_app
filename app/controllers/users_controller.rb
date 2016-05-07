@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find_by_id(params[:id])
+    @user = User.friendly.find(params[:id])
     render :edit
   end
 
@@ -31,13 +31,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by_id(params[:id])
+    @user = User.friendly.find(params[:id])
     @posts = @user.posts.all
     render :show
   end
 
   def update
-    user = User.find_by_id(params[:id])
+    user = User.friendly.find(params[:id])
     user.update(user_params)
     redirect_to user_path
   end

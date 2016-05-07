@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def new
-    @city = City.find_by_id(params[:city_id])
+    @city = City.friendly.find(params[:city_id])
     @post = Post.new
 
     render :new
@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
   def edit
     session[:return_to] ||= request.referer
-    @city = City.find_by_id(params[:city_id])
+    @city = City.friendly.find(params[:city_id])
     @post = Post.find_by_id(params[:id])
 
     if current_user == @post.user
@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    city = City.find_by_id(params[:city_id])
+    city = City.friendly.find(params[:city_id])
     post = Post.find_by_id(params[:id])
     post.update(post_params)
 
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
   def create
     user = current_user
     post = Post.create(post_params)
-    @city = City.find_by_id(params[:city_id])
+    @city = City.friendly.find(params[:city_id])
     @city.posts.push(post)
     user.posts.push(post)
 
@@ -45,7 +45,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by_id(params[:id])
-    @city = City.find_by_id(params[:city_id])
+    @city = City.friendly.find(params[:city_id])
 
     render :show
   end
