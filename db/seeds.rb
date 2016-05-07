@@ -14,17 +14,22 @@ User.destroy_all
 sf = City.create({
   name: "San Francisco",
   state: "California",
-  country: "United States"})
+  country: "United States",
+  image: "sanfrancisco-show.jpg"
+  })
 
 gb = City.create({
   name: "Gibraltar",
   state: "British Territory",
-  country: "England"})
+  country: "England",
+  image: "gibraltar-show.jpg"
+  })
 
 ln = City.create({
   name: "London",
   state: "United Kingdom",
-  country: "England"
+  country: "England",
+  image: "london-show.jpg"
   })
 
 timmy = User.create({
@@ -39,10 +44,14 @@ Post.create({
   title: "Great Tacos",
   content:"Gotta love the tacos in SF. They're the best! Can't beat em. Nom nom nom.",
   city_id: sf.id,
-  user_id: timmy.id})
+  user_id: timmy.id
+  })
 
 Post.create({
   title: "Worst Tacos",
   content:"UGH, I hate SF tacos! They are the worst. You should really go to somewhere more authentic, like Illinois, for a good taco. There they know how to make a good carne asada.",
   city_id: sf.id,
-  user_id: timmy.id})
+  user_id: timmy.id
+  })
+
+p "Created " + City.count.to_s + " cities, " + User.count.to_s + " Users, and " + Post.count.to_s + " posts."
