@@ -31,6 +31,6 @@ Planned Features:
 * Using Google Map API for users to be able to "pin" specific places within cities on the map
 
 Screenshot:
-![Alt text](public/images/screenShotVagabond.png?raw=true "Vagabond")
+![Alt text](public/screenShotVagabond.png?raw=true "Vagabond")
 
 Github Link: https://github.com/eamoses/vagabond_app
