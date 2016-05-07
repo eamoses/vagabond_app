@@ -27,8 +27,14 @@ VALID_NAME_REGEX = /\A[a-zA-Z0-9 ]*\z/
         @user = User.find_by({email: params[:email]})
         @user.try(:authenticate, params[:password])
     end
+    extend FriendlyId
+    friendly_id :myslug, use: :slugged
 
-    def to_param
-      "#{id} #{first_name} #{last_name}".parameterize
+    def myslug
+      "#{first_name}-#{last_name}"
     end
+
+    # def to_param
+    #   "#{id} #{first_name} #{last_name}".parameterize
+    # end
 end
