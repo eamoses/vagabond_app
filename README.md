@@ -12,12 +12,13 @@ Contributors
 Link to Heroku: https://whispering-fortress-13524.herokuapp.com/
 
 Technologies Used:
-* Heroku
-* HTML5
-* CSS3
-* Bootstrap
 * Ruby
 * Rails
+* CSS3
+* Bootstrap
+* HTML5
+* Heroku
+* Friendly URL
 
 Existing Features:
 * Creating a new user with a profile picture, first and last name, email and password
