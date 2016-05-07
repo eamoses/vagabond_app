@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   validates :avatar,
-              presence: {message: "Enter a link to a photo"}
+              presence: {message: ": Enter a link to a photo"}
 
 VALID_NAME_REGEX = /\A[a-zA-Z0-9 ]*\z/
   validates :first_name,
