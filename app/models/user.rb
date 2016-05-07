@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   validates :avatar,
-              presence: {message: "Enter a link to a photo"}
+              presence: {message: ": Enter a link to a photo"}
 
 VALID_NAME_REGEX = /\A[a-zA-Z0-9 ]*\z/
   validates :first_name,
@@ -31,10 +31,8 @@ VALID_NAME_REGEX = /\A[a-zA-Z0-9 ]*\z/
     friendly_id :myslug, use: :slugged
 
     def myslug
-      "#{first_name}-#{last_name}"
+      ["#{first_name}-#{last_name}",
+        ["#{first_name}-#{last_name}",:current_city]
+      ]
     end
-
-    # def to_param
-    #   "#{id} #{first_name} #{last_name}".parameterize
-    # end
 end
