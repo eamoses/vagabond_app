@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       @user.avatar = "your_avatar_image.png"
     end
     if @user.save
-      UserMailer.welcome_email(@user).deliver_now
+      # UserMailer.welcome_email(@user).deliver_now
       login(@user)
       redirect_to user_path(@user)
     else
