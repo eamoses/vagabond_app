@@ -18,6 +18,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
+    if @user.avatar == ""
+      @user.avatar = "your_avatar_image.png"
+    end
     if @user.save
       UserMailer.welcome_email(@user).deliver_now
       login(@user)
