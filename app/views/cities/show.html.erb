@@ -1,6 +1,5 @@
 <div class = "row">
   <div class = "col-xs-12">
-    <!-- <img src="http://placehold.it/1250x300" class="full-width"> -->
     <%= image_tag @city.image, class: "full-width" %>
   </div>
 </div>
@@ -16,7 +15,7 @@
         <div class = "row">
           <div class = "col-sm-11">
             <% if @city.state || @city.country %>
-              <h4><em><% if @city.state %><%= @city.state %>, <% end %><% if @city.country %><%= @city.country %><% end %></em></h4>
+              <h4 class="grey"><em><% if @city.state %><%= @city.state %>, <% end %><% if @city.country %><%= @city.country %><% end %></em></h4>
             <% end %>
           </div>
         </div>
@@ -24,7 +23,7 @@
 
       <% if current_user %>
         <div class = "col-md-1 col-md-offset-1 col-xs-4 col-xs-offset-5">
-          <%= link_to "New Post", new_post_path(@city), method: "get", class: "btn btn-info btn-lg top-marg" %>
+          <%= link_to "New Post", new_post_path(@city), method: "get", class: "btn btn-success btn-lg top-marg" %>
         </div>
       <% end %>
 
@@ -38,30 +37,41 @@
 
 <% if @posts %>
 <% @posts.order(:created_at).reverse_order.each do |post| %>
-  <div class = "row">
+  <div class = "row card">
     <div class = "col-sm-10 col-sm-offset-1">
       <div class = "col-xs-2">
-        <%= image_tag(post.user.avatar, class: 'full-width') %>
-        <!-- <img src="h" class="full-width"> -->
+        <div class = "row">
+          <%= image_tag(post.user.avatar, class: 'full-width') %>
+        </div>
+        <div class = "row top-spacer">
+          <div class = "col-xs-offset-1">
+            <div class = "row">
+              <% username = post.user.first_name + " " + post.user.last_name %>
+              <strong><%= link_to username, user_path(post.user) %></strong>
+            </div>
+            <div class = "row grey">
+              <em><%= post.user.current_city %></em>
+            </div>
+          </div>
+        </div>
       </div>
       <div class = "col-xs-8 col-xs-offset-1">
         <div class = "row">
-          <h5>"<%= post.title %>"</h5>
+          <h3><%= link_to post.title, city_post_path(@city, post) %></h3>
         </div>
         <div class = "row">
           <%=h truncate(post.content, :length => 400) %>
         </div>
         <div class = "row top-spacer">
-          <%= link_to "View this post", city_post_path(@city, post) %>
+          <%= link_to "View Post", city_post_path(@city, post), class: "btn btn-primary btn-sm" %>
           <% if post.user == current_user %>
-             - <%= link_to "Edit Post", edit_post_path(@city, post) %> - <%= link_to "Delete Post", city_post_path(@city, post), data: {confirm: 'Are you sure?'}, method: "delete" %>
+            <%= link_to "Edit", edit_post_path(@city, post), method: "get", class: "btn btn-info btn-sm left-spacer"%>
+            <%= link_to "Delete", city_post_path(@city, post), method: "delete", data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-sm left-spacer'%>
+
           <% end %>
         </div>
       </div>
     </div>
-  </div>
-  <div class = "row">
-    <hr />
   </div>
 <% end %>
 

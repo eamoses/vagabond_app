@@ -1,0 +1,175 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require bootstrap-3.3.6.min
+ *= require_tree .
+ *= require_self
+ */
+
+$color-one:   #429FBD;
+$color-two:   #43D073;
+$color-three: #5166C7;
+$color-four:  #E92805;
+$color-white: #FFFFFF;
+$color-black: #051A1E;
+$color-grey:  #C5C5C5;
+$background:  #F7F7FA;
+
+$font-headings: 'Khula', sans-serif;
+$font-paragraph: 'Lato', sans-serif;
+
+/*div {
+  border: 1px dotted grey;
+}*/
+
+a {
+  color: $color-three;
+}
+
+a:hover {
+  text-decoration: none;
+  color: mix($color-three, $color-black)
+}
+
+body {
+  color: $color-black;
+  padding-top: 70px;
+  background-color: $background;
+  font-family: $font-paragraph;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-headings;
+  font-weight: 600;
+  color: $color-black;
+}
+
+.btn {
+  border: 0;
+  border-radius: 0;
+  box-shadow: 2px 2px 1px $color-grey;
+  font-family: $font-paragraph;
+}
+.btn-danger {
+  background-color: $color-four;
+}
+.btn-danger:hover {
+  background-color: mix($color-four, $color-black);
+}
+.btn-info {
+  background-color: $color-one;
+}
+.btn-info:hover {
+  background-color: mix($color-one, $color-black);
+}
+.btn-primary {
+  background-color: $color-three;
+}
+.btn-primary:hover {
+  background-color: mix($color-three, $color-black);
+}
+.btn-success {
+  background-color: $color-two;
+}
+.btn-success:hover {
+  background-color: mix($color-two, $color-black);
+}
+.btn-warning {
+  background-color: $color-four;
+}
+.btn-warning:hover {
+  background-color: mix($color-four, $color-black);
+}
+
+.card {
+  background-color: #ffffff;
+  box-shadow: 4px 4px 2px $color-grey;
+  margin: 0 20px 20px 20px;
+  // margin-bottom: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.card-small {
+  background-color: #ffffff;
+  box-shadow: 4px 4px 2px $color-grey;
+  margin-bottom: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.full-width {
+  width: 100% !important;
+}
+
+.grey {
+  color: mix($color-black, $color-grey);
+}
+
+.left-spacer {
+  margin-left: 15px;
+}
+
+
+.dropdown-toggle.open:focus{
+  background-color: green;
+}
+
+
+.navbar-inverse .navbar-brand {
+  color: #fff;
+}
+
+.navbar-toggle:hover{
+  background-color: mix($color-three, $color-black);
+}
+
+.navbar-inverse {
+  background-color: $color-three;
+  border: mix($color-three, $color-black);
+}
+
+#nav a {
+  color: $color-white;
+}
+
+#nav a:hover {
+  color: mix($color-white,$color-grey);
+}
+
+#nav #nav-container #nav-collapse ul li ul.dropdown-menu li a {
+  color: $color-black;
+}
+
+.navbar-inverse .navbar-toggle {
+  border-color: #ffffff;
+}
+
+.shadow {
+  box-shadow: 4px 4px 2px $color-grey;
+}
+
+.top-spacer {
+  margin-top: 20px;
+}
+
+.top-marg {
+  margin-top: 40px;
+}
+
+.bottom-margin {
+  margin-bottom: 80px;
+}
+
+.top-marg-small {
+  margin-top: 20px;
+}

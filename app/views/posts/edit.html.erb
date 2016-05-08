@@ -1,11 +1,10 @@
-<div class = "row">
-  <div class = "col-xs-6 col-xs-offset-3">
+
+<div class = "col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+  <div class = "row">
     <h2>Edit your post</h2>
   </div>
-</div>
 
-<div class = "row">
-  <div class = "col-xs-6 col-xs-offset-3">
+  <div class = "row top-spacer">
 
     <%= form_for [@city, @post] do |f| %>
       <div class = "row">
@@ -15,7 +14,7 @@
         <%= f.text_area :content, placeholder: "I love this city!", rows: "10", class: "form-control top-spacer" %>
       </div>
       <div class = "row">
-        <%= f.submit "Add my Post!", class: "btn btn-success top-spacer" %>
+        <%= f.submit "Save my Post!", class: "btn btn-success btn-lg top-spacer" %>
       </div>
 
     <% end %>
