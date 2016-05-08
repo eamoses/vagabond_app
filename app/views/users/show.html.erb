@@ -22,9 +22,9 @@
                 <div>
                 <div class="col-sm-3 pull-right">
                   <% if current_user %>
-                  <%= link_to "", edit_post_path(p.city, p), method: "get", class: "glyphicon glyphicon-pencil btn btn-info btn-lg"%>
+                  <%= link_to "", edit_post_path(p.city, p), method: "get", class: "glyphicon glyphicon-pencil btn btn-info btn-md"%>
                     <p></p>
-                  <%= link_to "", city_post_path(p.city, p), method: "delete", data: {confirm: 'Are you sure?'}, class: 'glyphicon glyphicon-pencil btn btn-danger btn-lg'%>
+                  <%= link_to "X", city_post_path(p.city, p), method: "delete", data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-md'%>
                 </div>
                   <%= link_to p.title, city_post_path(p.city, p) %><p></p>
                   <%=h truncate(p.content, :length => 500) %>
