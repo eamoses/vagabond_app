@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     if @user.save
       UserMailer.welcome_email(@user).deliver_now
       login(@user)
-      redirect_to @user
+      redirect_to user_path(@user)
     else
       flash[:error] = @user.errors.full_messages.to_sentence
       redirect_to new_user_path
