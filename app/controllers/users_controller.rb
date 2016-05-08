@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    #friendly_id requires a find and not a find_by_id
     @user = User.friendly.find(params[:id])
     render :edit
   end
@@ -22,15 +23,12 @@ class UsersController < ApplicationController
       @user.avatar = "your_avatar_image.png"
     end
     if @user.save
-      # UserMailer.welcome_email(@user).deliver_now
       login(@user)
       redirect_to user_path(@user)
     else
       flash[:error] = @user.errors.full_messages.to_sentence
       redirect_to new_user_path
     end
-
-
   end
 
   def show

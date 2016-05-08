@@ -3,7 +3,6 @@ class PostsController < ApplicationController
   def new
     @city = City.friendly.find(params[:city_id])
     @post = Post.new
-
     render :new
   end
 
