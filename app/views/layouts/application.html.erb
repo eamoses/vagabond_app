@@ -41,7 +41,8 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <% if current_user %>
-                <li><%= link_to "Profile", user_path(current_user) %></li>
+                <% user_greeting = current_user.first_name + "'s Profile" %>
+                <li><%= link_to user_greeting, user_path(current_user) %></li>
                 <li><%= link_to "Log Out", logout_path(current_user) %></li>
               <% else %>
                 <li><%= link_to "Sign Up", new_user_path %></li>
