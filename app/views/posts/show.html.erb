@@ -1,32 +1,37 @@
 
 <div class = "row">
   <div class = "col-sm-10 col-sm-offset-1">
-    <div class = "col-xs-2">
-      <div class = "row">
-        <%= image_tag(@post.user.avatar, class: 'full-width') %>
-      </div>
-      <div class = "row top-spacer">
-        <strong><%= link_to (@post.user.first_name + " " + @post.user.last_name), user_path(@post.user)%></strong>
-      </div>
-      <div class = "row">
-        <%= @post.user.current_city %>
-      </div>
-    </div>
-    <div class = "col-xs-8 col-xs-offset-1">
-      <div class = "row">
-        <h3><%= @post.title %></h3>
-      </div>
-      <div class = "row">
-        <em><%= link_to @post.city.name, city_path(@city) %></em>
-      </div>
-      <div class = "row top-spacer">
-        <p><%=simple_format(@post.content)%></p>
-      </div>
-      <% if @post.user == current_user %>
-        <div class = "row top-spacer">
-          <%= link_to "Edit Post", edit_post_path(@city, @post) %> - <%= link_to "Delete Post", city_post_path(@city, @post), method: "delete" %>
+    <div class = "row card">
+        <div class = "col-sm-2 col-sm-offset-1">
+          <div class = "row">
+            <%= image_tag(@post.user.avatar, class: 'full-width grey-border') %>
+          </div>
+          <div class = "row top-spacer">
+            <strong><%= link_to (@post.user.first_name + " " + @post.user.last_name), user_path(@post.user)%></strong>
+          </div>
+          <div class = "row">
+            <em><%= @post.user.current_city %></em>
+          </div>
         </div>
-      <% end %>
+
+        <div class = "col-sm-7 col-sm-offset-1">
+          <div class = "row">
+            <h3><%= @post.title %></h3>
+          </div>
+          <div class = "row">
+            <em><%= link_to @post.city.name, city_path(@city) %></em>
+          </div>
+          <hr />
+          <div class = "row ">
+            <p><%=simple_format(@post.content)%></p>
+          </div>
+          <% if @post.user == current_user %>
+            <div class = "row top-spacer">
+              <%= link_to "Edit", edit_post_path(@city, @post), method: "get", class: "btn btn-info btn-sm"%>
+              <%= link_to "Delete", city_post_path(@city, @post), method: "delete", data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-sm left-spacer'%>
+            </div>
+          <% end %>
+        </div>
     </div>
   </div>
 </div>

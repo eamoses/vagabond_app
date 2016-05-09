@@ -1,41 +1,59 @@
-  <div class ="row">
-    <div class="col-xs-12">
-      <div class = "col-sm-6 pull-left">
-        <div class = "row">
-          <div class = "col-sm-6">
-            <p></p>
-            <%= image_tag(@user.avatar, class: 'full-width') %>
-          <p><strong>Name:</strong> <%= @user.first_name %> <%= @user.last_name %></p>
-          <p><strong>Email:</strong> <%= @user.email %></p>
-          <p><strong>Current City:</strong> <%= @user.current_city %></p>
-          <p><strong>Join Date:</strong> <%= @user.created_at.strftime("%m/%d/%Y") %></p>
-          <%= link_to "Edit User", edit_user_path(@user), class: "btn btn-info btn-md top-marg" %>
-          </div>
+<!-- <div class = "row"> -->
+  <div class = "col-sm-10 col-sm-offset-1">
+    <div class = "col-sm-5 card">
+      <div class = "row">
+        <div class = "col-xs-10 col-xs-offset-1">
+          <%= image_tag(@user.avatar, class: 'full-width grey-border') %>
         </div>
       </div>
-
-          <div class="row">
-            <div class="col-sm-6 pull-right">
-              <div>
-                <% @posts.order(:created_at).reverse_order.each do |p| %><p></p>
-                <div>____________________________</div>
-                <div>
-                <div class="col-sm-3 pull-right">
-                  <% if current_user %>
-                  <%= link_to "", edit_post_path(p.city, p), method: "get", class: "glyphicon glyphicon-pencil btn btn-info btn-lg"%>
-                    <p></p>
-                  <%= link_to "", city_post_path(p.city, p), method: "delete", data: {confirm: 'Are you sure?'}, class: 'glyphicon glyphicon-pencil btn btn-danger btn-lg'%>
+      <div class = "row">
+        <div class = "col-xs-8 col-xs-offset-2">
+          <div class ="row top-spacer">
+            <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+          </div>
+          <div class = "row">
+            <strong>Email:</strong> <%= @user.email %>
+          </div>
+          <div class = "row">
+            <strong>Current City:</strong> <%= @user.current_city %>
+          </div>
+          <div class = "row">
+            <strong>Join Date:</strong> <%= @user.created_at.strftime("%m/%d/%Y") %>
+          </div>
+          <% if @user == current_user %>
+            <div class = "row">
+              <%= link_to "Edit User", edit_user_path(@user), class: "btn btn-info btn-md top-marg-small" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class = "row">
+      <div class = "col-sm-5 col-sm-offset-1">
+        <% if @posts %>
+          <% @posts.order(:created_at).reverse_order.each do |p| %>
+            <div class = "row card">
+              <div class = "col-xs-10 col-xs-offset-1">
+                <div class = "row">
+                  <h3><%= link_to p.title, city_post_path(p.city, p) %></h3>
                 </div>
-                  <%= link_to p.title, city_post_path(p.city, p) %><p></p>
-                  <%=h truncate(p.content, :length => 200) %>
-                  <%= link_to p.city.name, city_path(p.city) %><p></p>
-              <% end %>
-            <% end %>
-          </div>
-         </div>
-        </div>
-       </div>
+                <div class = "row">
+                  <em><%= link_to p.city.name, city_path(p.city) %></em>
+                </div>
+                <div class = "row top-spacer">
+                  <%=h truncate(p.content, :length => 500) %>
+                </div>
+                <% if p.user == current_user %>
+                  <div class = "row top-spacer">
+                    <%= link_to "Edit", edit_post_path(p.city, p), method: "get", class: "btn btn-info btn-sm"%>
+                    <%= link_to "Delete", city_post_path(p.city, p), method: "delete", data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-sm left-spacer'%>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
       </div>
-     </div>
     </div>
   </div>
+<!-- </div> -->
