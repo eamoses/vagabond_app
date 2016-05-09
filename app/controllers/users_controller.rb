@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       render :edit
   else
       flash[:error] = "You cannot edit another users profile"
-      redirect_to root_path
+      redirect_to user_path
     end
   end
 
