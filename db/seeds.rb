@@ -6,11 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
-Post.all.each do |p|
+Post.all.with_deleted.each do |p|
   p.really_destroy!
 end
-# Post.destroy_all
 City.destroy_all
 User.destroy_all
 
