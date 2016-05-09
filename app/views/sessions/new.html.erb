@@ -15,7 +15,10 @@
       <div class="row top-spacer">
         <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
       </div>
-      <div class="row top-spacer">
+      <div class="row top-spacer pull-right">
+        <em>Don't have an account? <%= link_to "Sign up!", new_user_path %></em>
+      </div>
+      <div class="row">
         <%= f.submit "Sign In", class: "btn btn-success top-spacer btn-lg" %>
       </div>
 
