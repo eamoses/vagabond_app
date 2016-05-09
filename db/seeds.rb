@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-Post.each do |p|
+Post.all.each do |p|
   p.really_destroy!
 end
 # Post.destroy_all
