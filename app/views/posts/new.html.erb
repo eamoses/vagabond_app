@@ -5,8 +5,8 @@
   </div>
 
   <div class = "row">
-
     <%= form_for @post do |f| %>
+    
       <div class = "row">
         <%= f.text_field :title, placeholder: "Post Title", class: "form-control" %>
       </div>
@@ -16,7 +16,8 @@
       <div class = "row">
         <%= f.submit "Add my Post!", class: "btn btn-success top-spacer" %>
       </div>
-    <% end %>
 
+    <% end %>
   </div>
+
 </div>
