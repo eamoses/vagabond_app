@@ -147,6 +147,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-left: 15px;
 }
 
+.navbar-collapse {
+  background-color: #ffffff;
+  box-shadow: 2px 2px 2px mix($color-black, $color-grey);
+}
+
 .navbar-inverse {
   // background-color: $color-brand;
   background: $color-three; /* For browsers that do not support gradients */
@@ -163,8 +168,18 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
 }
 
+.navbar-inverse .navbar-nav li a {
+  color: $color-black !important;
+}
+
 .navbar-inverse .navbar-toggle {
   border-color: #ffffff;
+}
+
+.navbar-inverse .navbar-nav>.open>a,
+.navbar-inverse .navbar-nav>.open>a:focus,
+.navbar-inverse .navbar-nav>.open>a:hover {
+  background-color: mix($color-three, $color-white);
 }
 
 .navbar-toggle:hover{
