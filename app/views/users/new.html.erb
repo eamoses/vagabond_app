@@ -27,10 +27,13 @@
       <div class = "row top-spacer">
         <%= f.text_field :avatar, placeholder: "Photo Url", class: "form-control" %>
       </div>
-      <div class = "row top-spacer">
-        <%= f.submit "Sign Up", class: "btn btn-success btn-lg top-spacer" %>
+      <div class="row top-spacer pull-right">
+        <em>Already have an account? <%= link_to "Log in!", new_session_path %></em>
       </div>
-      
+      <div class = "row top-spacer">
+        <%= f.submit "Sign Up", class: "btn btn-success btn-lg" %>
+      </div>
+
     <% end %>
 
   </div>
