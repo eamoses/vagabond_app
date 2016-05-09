@@ -20,6 +20,7 @@ Technologies Used:
 * Bootstrap
 * HTML5
 * Heroku
+* SASS
 
 Existing Features:
 * Creating a new user with a profile picture, first and last name, email and password
