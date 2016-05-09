@@ -32,7 +32,7 @@ VALID_NAME_REGEX = /\A[a-zA-Z0-9 ]*\z/
     def myslug
       # If for some reason a person signs on with the same first and last name
       # as someone else in the system, the url will append their city.
-      #If there is no current city, it will append a strange hash to the url.
+      # If there is no current city, it will append a strange hash to the url.
       ["#{first_name}-#{last_name}",
         ["#{first_name}-#{last_name}",:current_city]
       ]

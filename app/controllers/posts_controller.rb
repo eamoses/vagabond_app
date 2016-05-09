@@ -7,7 +7,9 @@ class PostsController < ApplicationController
   end
 
   def edit
+    # sets previous screen so that they get the proper redirect after Update
     session[:return_to] ||= request.referer
+
     @city = City.friendly.find(params[:city_id])
     @post = Post.find_by_id(params[:id])
 
@@ -24,6 +26,7 @@ class PostsController < ApplicationController
     post = Post.find_by_id(params[:id])
     post.update(post_params)
 
+    # returns them to the screen saved in Edit
     redirect_to session.delete(:return_to)
   end
 
@@ -31,14 +34,19 @@ class PostsController < ApplicationController
     user = current_user
     post = Post.create(post_params)
     @city = City.friendly.find(params[:city_id])
-    @city.posts.push(post)
-    user.posts.push(post)
+
+    @city.posts.push(post)  # adds to City's page...
+    user.posts.push(post)   # ...as well as User's page
 
     if post.save
       redirect_to city_path(@city.id)
     else
       flash[:error] = post.errors.full_messages.to_sentence
+<<<<<<< HEAD
       redirect_to new_post_path
+=======
+      redirect_to new_post_path(post[:city_id])
+>>>>>>> 16fef61537803e4b87b4f6f0317c40157b1541cd
     end
   end
 
@@ -56,10 +64,11 @@ class PostsController < ApplicationController
       flash[:notice] = "Post deleted."
       redirect_to city_path(params[:city_id])
     else
-      flash[:error] = post.erroes.full_messages_to_sentence
+      flash[:error] = post.errors.full_messages_to_sentence
       redirect_to edit_post_path(post.city, post)
     end
   end
+
 
   private
 
