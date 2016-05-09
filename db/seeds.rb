@@ -81,6 +81,13 @@ kathleen = User.create({
   password: "testkathleen"})
 
 Post.create({
+  title: "Scuba!",
+  content: "If you head out to Gibraltar, be sure to go scuba diving.  I've scuba'd all over the world and there's nothing like the Mefitarranean.",
+  city_id: gb.id,
+  user_id: kathleen.id
+  })
+
+Post.create({
   title: "Great Tacos",
   content:"Gotta love the tacos in SF. They're the best! Can't beat em. Nom nom nom.",
   city_id: sf.id,
@@ -92,13 +99,6 @@ Post.create({
   content:"Total tourist trap. Went here a few times and felt like it was a complete waster. Sure, the wax museum is good for a laugh, but I feel like you're really missing out on what makes San Francisco special by spending your trip somewhere like this.",
   city_id: sf.id,
   user_id: jeff.id
-  })
-
-Post.create({
-  title: "What a rock!",
-  content: "I can't say enough about how beautiful Gibraltar is. I truly enjoyed walking through town, visiting the sites and checking out the views.  Can't wait to go back!",
-  city_id: gb.id,
-  user_id: dan.id
   })
 
 Post.create({
@@ -130,10 +130,10 @@ Post.create({
   })
 
 Post.create({
-  title: "Scuba!",
-  content: "If you head out to Gibraltar, be sure to go scuba diving.  I've scuba'd all over the world and there's nothing like the Mefitarranean.",
+  title: "What a rock!",
+  content: "I can't say enough about how beautiful Gibraltar is. I truly enjoyed walking through town, visiting the sites and checking out the views.  Can't wait to go back!",
   city_id: gb.id,
-  user_id: kathleen.id
+  user_id: dan.id
   })
 
 p "Created " + City.count.to_s + " cities, " + User.count.to_s + " Users, and " + Post.count.to_s + " posts."
