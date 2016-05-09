@@ -12,9 +12,14 @@ class UsersController < ApplicationController
   end
 
   def edit
-    #friendly_id requires a find and not a find_by_id
+      #friendly_id requires a find and not a find_by_id
     @user = User.friendly.find(params[:id])
-    render :edit
+    if current_user == @user
+      render :edit
+  else
+      flash[:error] = "You cannot edit another users profile"
+      redirect_to root_path
+    end
   end
 
   def create
