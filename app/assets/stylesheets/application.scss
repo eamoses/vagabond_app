@@ -15,10 +15,12 @@
  *= require_self
  */
 
-$color-one:   #429FBD;
-$color-two:   #43D073;
-$color-three: #5166C7;
-$color-four:  #E92805;
+$color-brand: #0060A4;
+$color-bdk:   #152042;
+$color-one:   #65D2EB;
+$color-two:   #3ADB89;
+$color-three: #3954B0;
+$color-four:  #FF3D65;
 $color-white: #FFFFFF;
 $color-black: #051A1E;
 $color-grey:  #C5C5C5;
@@ -40,6 +42,10 @@ a:hover {
   color: mix($color-three, $color-black)
 }
 
+h3 a {
+  color: mix($color-bdk,$color-brand);
+}
+
 body {
   color: $color-black;
   padding-top: 70px;
@@ -51,6 +57,10 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $font-headings;
   font-weight: 600;
   color: $color-black;
+}
+
+.color-brand{
+  color: $color-brand;
 }
 
 .btn {
@@ -129,12 +139,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-toggle:hover{
-  background-color: mix($color-three, $color-black);
+  background-color: mix($color-brand, $color-black);
 }
 
 .navbar-inverse {
-  background-color: $color-three;
-  border: mix($color-three, $color-black);
+  // background-color: $color-brand;
+  background: $color-three; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, $color-bdk, $color-three); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, $color-bdk, $color-three); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, $color-bdk, $color-three); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, $color-bdk, $color-three); /* Standard syntax */
+
+  border: mix($color-brand, $color-black);
 }
 
 .navbar-inverse .navbar-toggle {

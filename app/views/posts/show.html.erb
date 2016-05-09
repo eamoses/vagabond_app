@@ -21,7 +21,8 @@
           <div class = "row">
             <em><%= link_to @post.city.name, city_path(@city) %></em>
           </div>
-          <div class = "row top-spacer">
+          <hr />
+          <div class = "row ">
             <p><%=simple_format(@post.content)%></p>
           </div>
           <% if @post.user == current_user %>
