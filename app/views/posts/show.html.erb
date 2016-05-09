@@ -25,8 +25,11 @@
         </div>
         <hr />
 
-        <div class = "row ">
+        <div class = "row">
           <p><%=simple_format(@post.content)%></p>
+        </div>
+        <div class = "row">
+          <em class="grey">Posted <%= time_ago_in_words(@post.created_at) %> ago</em>
         </div>
 
         <!-- Edit buttons (only for post author) -->

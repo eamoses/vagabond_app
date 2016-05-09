@@ -62,12 +62,17 @@
         <div class = "row">
           <h3><%= link_to post.title, city_post_path(@city, post) %></h3>
         </div>
+
         <div class = "row">
           <%= h truncate(post.content, :length => 400) %>
           <% if post.content.length > 400 %>
             <%= link_to "Read more", city_post_path(@city, post) %>
           <% end %>
         </div>
+        <div class = "row top-spacer">
+          <em class="grey">Posted <%= time_ago_in_words(post.created_at) %> ago</em>
+        </div>
+
         <div class = "row top-spacer">
           <%= link_to "View Post", city_post_path(@city, post), class: "btn btn-primary btn-sm" %>
 
