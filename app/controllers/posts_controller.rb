@@ -37,8 +37,8 @@ class PostsController < ApplicationController
     if post.save
       redirect_to city_path(@city.id)
     else
-      flash[:error] = @post.errors.full_messages.to_sentence
-      redirect_to new_post_path
+      flash[:error] = post.errors.full_messages.to_sentence
+      redirect_to new_post_path(post[:city_id])
     end
   end
 
