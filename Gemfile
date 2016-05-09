@@ -27,7 +27,7 @@ gem 'hirb'
 gem 'bcrypt', '~> 3.1.7'
 gem 'friendly_id'
 gem 'figaro'
-# gem "paranoia", "~> 2.0"
+gem "paranoia", "~> 2.0"
 # Use Unicorn as the app server
 # gem 'unicorn'
 
