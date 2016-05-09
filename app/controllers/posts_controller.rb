@@ -39,7 +39,7 @@ class PostsController < ApplicationController
     user.posts.push(post)   # ...as well as User's page
 
     if post.save
-      redirect_to city_path(@city.id)
+      redirect_to city_path(@city)
     else
       flash[:error] = post.errors.full_messages.to_sentence
       redirect_to new_post_path(post[:city_id])
