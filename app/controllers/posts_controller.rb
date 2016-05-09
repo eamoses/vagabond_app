@@ -42,11 +42,7 @@ class PostsController < ApplicationController
       redirect_to city_path(@city.id)
     else
       flash[:error] = post.errors.full_messages.to_sentence
-<<<<<<< HEAD
-      redirect_to new_post_path
-=======
       redirect_to new_post_path(post[:city_id])
->>>>>>> 16fef61537803e4b87b4f6f0317c40157b1541cd
     end
   end
 
