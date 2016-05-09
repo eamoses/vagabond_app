@@ -31,7 +31,7 @@ Existing Features:
 * Deleting and updating user's unique posts
 
 Planned Features:
-* Using Google Map API for users to be able to "pin" specific places within cities on the map
+* Create a mailer so new users receive emails upon sign-up
 
 Screenshot:
 ![Alt text](public/screenShotVagabond.png?raw=true "Vagabond")
