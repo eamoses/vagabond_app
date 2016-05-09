@@ -71,7 +71,7 @@
 
               <% if post_count != 0 %>
                 <div class = "row">
-                  <strong><%= city.name %>:</strong> <%= post_count %> posts<br />
+                  <strong><%= link_to city.name, city_path(city) %>:</strong> <%= post_count %> posts<br />
                 </div>
               <% end %>
             <% end %>
@@ -91,9 +91,14 @@
               </div>
               <div class = "row">
                 <em><%= link_to p.city.name, city_path(p.city) %></em>
+                <hr />
+              </div>
+
+              <div class = "row">
+                <%=h truncate(p.content, :length => 500) %>
               </div>
               <div class = "row top-spacer">
-                <%=h truncate(p.content, :length => 500) %>
+                <em class="grey">Posted <%= time_ago_in_words(p.created_at) %> ago</em>
               </div>
 
               <% if p.user == current_user %>
