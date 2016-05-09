@@ -94,7 +94,6 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #ffffff;
   box-shadow: 4px 4px 2px $color-grey;
   margin: 0 20px 20px 20px;
-  // margin-bottom: 30px;
   padding-top: 15px;
   padding-bottom: 15px;
 }
@@ -138,18 +137,6 @@ h1, h2, h3, h4, h5, h6 {
   border: mix($color-three, $color-black);
 }
 
-#nav a {
-  color: $color-white;
-}
-
-#nav a:hover {
-  color: mix($color-white,$color-grey);
-}
-
-#nav #nav-container #nav-collapse ul li ul.dropdown-menu li a {
-  color: $color-black;
-}
-
 .navbar-inverse .navbar-toggle {
   border-color: #ffffff;
 }
@@ -172,4 +159,21 @@ h1, h2, h3, h4, h5, h6 {
 
 .top-marg-small {
   margin-top: 20px;
+}
+
+.grey-border {
+  border: 1px solid mix(#F7F7FA, $color-grey);
+
+}
+
+#nav a {
+  color: $color-white;
+}
+
+#nav a:hover {
+  color: mix($color-white,$color-grey);
+}
+
+#nav #nav-container #nav-collapse ul li ul.dropdown-menu li a {
+  color: $color-black;
 }
