@@ -33,7 +33,7 @@ ln = City.create({
   })
 
 thomas = User.create({
-  avatar: "seedimg-male01",
+  avatar: "seedimg-male01.jpg",
   email: "thomas@test.com",
   first_name: "Thomas",
   last_name: "Thurwood",
@@ -41,7 +41,7 @@ thomas = User.create({
   password: "testthomas"})
 
 jeff = User.create({
-  avatar: "seedimg-male02",
+  avatar: "seedimg-male02.jpg",
   email: "jeff@test.com",
   first_name: "Jeff",
   last_name: "Marshall",
@@ -49,7 +49,7 @@ jeff = User.create({
   password: "testjeff"})
 
 dan = User.create({
-  avatar: "seedimg-male03",
+  avatar: "seedimg-male03.jpg",
   email: "dan@test.com",
   first_name: "Dan",
   last_name: "Smith",
@@ -57,7 +57,7 @@ dan = User.create({
   password: "testdan"})
 
 georgio = User.create({
-  avatar: "seedimg-male04",
+  avatar: "seedimg-male04.jpg",
   email: "georgio@test.com",
   first_name: "Georgio",
   last_name: "Coulter",
@@ -65,7 +65,7 @@ georgio = User.create({
   password: "testgeorgio"})
 
 melanie = User.create({
-  avatar: "seedimg-female01",
+  avatar: "seedimg-female01.jpg",
   email: "melanie@test.com",
   first_name: "Melanie",
   last_name: "Sullivan",
@@ -73,7 +73,7 @@ melanie = User.create({
   password: "testmelanie"})
 
 kathleen = User.create({
-  avatar: "seedimg-female02",
+  avatar: "seedimg-female02.jpg",
   email: "kathleen@test.com",
   first_name: "Kathleen",
   last_name: "Roberts",
