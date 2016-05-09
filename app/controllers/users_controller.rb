@@ -42,6 +42,11 @@ class UsersController < ApplicationController
     user = User.friendly.find(params[:id])
     if user == current_user
       user.update(user_params)
+      if user.avatar == ""
+        # Adds default avatar image if no image is uploaded
+        user.avatar = "your_avatar_image.png"
+        user.save
+      end
       redirect_to user_path
     else
       flash[:error] = "You cannot edit another user's profile"
