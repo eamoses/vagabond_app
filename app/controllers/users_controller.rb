@@ -12,9 +12,14 @@ class UsersController < ApplicationController
   end
 
   def edit
-    #friendly_id requires a find and not a find_by_id
+      #friendly_id requires a find and not a find_by_id
     @user = User.friendly.find(params[:id])
-    render :edit
+    if current_user == @user
+      render :edit
+  else
+      flash[:error] = "You cannot edit another users profile"
+      redirect_to user_path
+    end
   end
 
   def create
@@ -40,15 +45,18 @@ class UsersController < ApplicationController
 
   def update
     user = User.friendly.find(params[:id])
-    user.update(user_params)
-
-    if user.avatar == ""
-      # Adds default avatar image if no image is uploaded
-      user.avatar = "your_avatar_image.png"
-      user.save
+    if user == current_user
+      user.update(user_params)
+      if user.avatar == ""
+        # Adds default avatar image if no image is uploaded
+        user.avatar = "your_avatar_image.png"
+        user.save
+      end
+      redirect_to user_path
+    else
+      flash[:error] = "You cannot edit another user's profile"
+      redirect_to user_path
     end
-
-    redirect_to user_path
   end
 
   def self.confirm(params)
