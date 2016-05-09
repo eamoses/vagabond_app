@@ -41,6 +41,13 @@ class UsersController < ApplicationController
   def update
     user = User.friendly.find(params[:id])
     user.update(user_params)
+
+    if user.avatar == ""
+      # Adds default avatar image if no image is uploaded
+      user.avatar = "your_avatar_image.png"
+      user.save
+    end
+
     redirect_to user_path
   end
 
