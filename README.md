@@ -16,6 +16,7 @@ Technologies Used:
 * Rails
 * Friendly_id
 * bcrypt
+* paranoia
 * CSS3
 * Bootstrap
 * HTML5
@@ -24,11 +25,12 @@ Technologies Used:
 
 Existing Features:
 * Creating a new user with a profile picture, first and last name, email and password
-* User receives an email when a new user is created
-* Users ability to create posts
+* User has the ability to create posts
+* A user cannot delete or edit other's posts
 * Read all existing posts as long as a user is logged-in
-* Updating user information
-* Deleting and updating user's unique posts
+* Update their user information
+* Deleting and updating their posts
+* Posts are never truly deleted - only soft deletes
 
 Planned Features:
 * Create a mailer so new users receive emails upon sign-up
